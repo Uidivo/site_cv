@@ -1,0 +1,94 @@
+{% extends 'layout_front.html.twig' %}
+{% set adminMenu = true %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <h2 class="text-center">{{ block('title') }}</h2>
+  {% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+  {% endfor %}
+
+  <div class="well">
+  {{ form_start( experienceForm, { 'attr': {'class': 'form-horizontal'} }) }}
+      <div class="form-group">
+          {{ form_label(experienceForm.contrat, null, { 'label_attr':  {
+              'class': 'col-sm-4 control-label'
+          }}) }}
+          <div class="col-sm-6">
+              {{ form_errors(experienceForm.contrat) }}
+              {{ form_widget(experienceForm.contrat, { 'attr':  {
+                  'class': 'form-control'
+              }}) }}
+          </div>
+      </div>
+      <div class="form-group">
+          {{ form_label(experienceForm.debut, null, { 'label_attr':  {
+              'class': 'col-sm-4 control-label'
+          }}) }}
+          <div class="col-sm-6">
+              {{ form_errors(experienceForm.debut) }}
+              {{ form_widget(experienceForm.debut, { 'attr':  {
+                  'class': 'form-control',
+                  'rows': '8'
+              }}) }}
+          </div>
+      </div>
+      <div class="form-group">
+          {{ form_label(experienceForm.fin, null, { 'label_attr':  {
+              'class': 'col-sm-4 control-label'
+          }}) }}
+          <div class="col-sm-6">
+              {{ form_errors(experienceForm.fin) }}
+              {{ form_widget(experienceForm.fin, { 'attr':  {
+                  'class': 'form-control',
+                  'rows': '8'
+              }}) }}
+          </div>
+      </div>
+      <div class="form-group">
+          {{ form_label(experienceForm.poste, null, { 'label_attr':  {
+              'class': 'col-sm-4 control-label'
+          }}) }}
+          <div class="col-sm-6">
+              {{ form_errors(experienceForm.poste) }}
+              {{ form_widget(experienceForm.poste, { 'attr':  {
+                  'class': 'form-control',
+                  'rows': '8'
+              }}) }}
+          </div>
+      </div>
+      <div class="form-group">
+          {{ form_label(experienceForm.content, null, { 'label_attr':  {
+              'class': 'col-sm-4 control-label'
+          }}) }}
+          <div class="col-sm-6">
+              {{ form_errors(experienceForm.content) }}
+              {{ form_widget(experienceForm.content, { 'attr':  {
+                  'class': 'form-control',
+                  'rows': '8'
+              }}) }}
+          </div>
+      </div>
+      <div class="form-group">
+          {{ form_label(experienceForm.img, null, { 'label_attr':  {
+              'class': 'col-sm-4 control-label'
+          }}) }}
+          <div class="col-sm-6">
+              {{ form_errors(experienceForm.img) }}
+              {{ form_widget(experienceForm.img, { 'attr':  {
+                  'class': 'form-control',
+                  'rows': '8'
+              }}) }}
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-3">
+              <input type="submit" class="btn btn-primary" value="Save" />
+          </div>
+      </div>
+  {{ form_end( experienceForm ) }}
+  </div>
+{% endblock %}

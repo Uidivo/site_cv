@@ -1,0 +1,17 @@
+{% extends "layout_front.html.twig" %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+  <h1>Portfolio</h1>
+  {% for portfolio in portfolios %}
+    <article class="row col-md-5 col-md-offset-1">
+        <h2 class=" text-center"><a class="articleTitle text-center" href="{{ path('portfolio', { 'id': portfolio.id }) }}">{{ portfolio.name }}</a></h2>
+        <div class="col-md-12">
+          <p class=" text-center">{{ portfolio.descriptif }}</p>
+          <img src="{{ portfolio.img }}" title="{{ portfolio.name }}" class="col-md-10 col-md-offset-1 img-thumbnail" alt="{{ portfolio.name }}">
+        </div>
+    </article>
+  {% endfor %}
+
+{% endblock %}

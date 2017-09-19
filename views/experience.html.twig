@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>Experiences</h1>
+  {% for experience in experiences %}
+    <article class="row col-md-5 col-md-offset-1">
+        <h2><a class="articleTitle" href="{{ path('experience_single', { 'id': experience.id }) }}">{{ experience.poste }}</a></h2>
+        <p><em>{{ experience.debut }}</em> / <em>{{ experience.fin }}</em></p>
+        <div class="col-md-12">
+          <img src="{{ experience.img }}" title="{{ experience.title }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ experience.title }}">
+        </div>
+        <h3>{{ experience.content }}</h3>
+    </article>
+  {% endfor %}
+
+{% endblock %}

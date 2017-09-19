@@ -1,0 +1,127 @@
+
+/* Balises */
+body {
+    padding-top: 50px;
+}
+img {
+  width:100%;
+}
+/*------*/
+.blue {
+  padding-top: 8%;
+  padding-bottom: 8%;
+  /*background-color: blue;*/
+}
+/* skill bar */
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.bob {
+    width: 100%; /* Full width */
+    background-color: #ddd; /* Grey background */
+}
+
+.skills {
+    text-align: right; /* Right-align text */
+    padding-right: 20px; /* Add some right padding */
+    line-height: 40px; /* Set the line-height to center the text inside the skill bar, and to expand the height of the container */
+    color: white; /* White text color */
+    height: 3px;
+}
+
+.html {width: 90%; background-color: #4CAF50;} /* Green */
+.css {width: 80%; background-color: #2196F3;} /* Blue */
+.js {width: 65%; background-color: #f44336;} /* Red */
+.php {width: 60%; background-color: #808080;} /* Dark Grey */
+/* end skill bar */
+/* Classes */
+/* -- Header */
+.socialBtn li{
+  font-size: 3em;
+  display: inline-block;
+  margin: 10px;
+}
+.socialBtn li a i{
+  transition-duration: 1s;
+  padding-bottom:5px;
+  border-bottom:5px solid rgba(255, 255, 255, 0)
+}
+.socialBtn li a i:hover{
+  border-bottom:5px solid rgba(255, 255, 255, 1);
+}
+.socialBtn a{
+  color:white;
+}
+
+.adminTable {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.tuile{
+  padding:10px;
+  margin:10px;
+  background-color:rgba(25,25,25,0.1);
+  float:left;
+  width:48%;
+  }
+  .tuile:nth-child(even){
+    float:right;
+  }
+.articleTitle:hover, .articleTitle:focus {
+  text-decoration: none;
+}
+.footer {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    text-align: center;
+}
+.table-responsive{
+  margin-bottom:10px;
+}
+/*------*/
+.profilImg{
+  width: 250px;
+  margin: auto;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  }
+  .profilImg img{
+    position:absolute;
+    width:100%;
+    /* bottom: -50px; */
+  }
+  header.masthead .intro-text .skills{
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+  @media (min-width: 768px){
+    header.masthead .intro-text .skills {
+      font-size: 2.75em;
+      text-transform: uppercase;
+    }
+  }
+  @media (min-width: 768px){
+    header.masthead .intro-text .name {
+      font-size: 3.75em;
+    }
+
+  }
+/* ID */
+#admin{
+
+  }
+  #admin #experiences img{
+    max-width:250px;
+  }
+  #admin .table-responsive{
+    max-height: 70vh;
+    overflow-y: scroll;
+  }
+#errorPanel {
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+/*------*/

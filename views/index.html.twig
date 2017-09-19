@@ -1,0 +1,149 @@
+{% extends "layout_front.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- test -->
+<div class="promo-block">
+    <div class="container">
+        <div class="row blue">
+          {% for perso in persos %}
+            <div class="col-sm-12 sm-margin-b-60 text-center">
+                <div class="margin-b-30">
+
+                    <h1 class="promo-block-title"><a class="articleTitle" href="{{ path('perso_single', { 'id': perso.id }) }}">{{ perso.nom }} {{ perso.prenom }}</a></h1>
+                    <p class="promo-block-text">Developpeur / Integrateur Web</p>
+                    <ul class="list-inline">
+                        <li><a href=""articleTitle" href="{{ path('perso_single', { 'id': perso.id }) }}" class="social-icons"><i class="icon-social-facebook"></i></a></li>
+                        <li><a href=""articleTitle" href="{{ path('perso_single', { 'id': perso.id }) }}" class="social-icons"><i class="icon-social-linkedin"></i></a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- <div class="col-sm-6">
+
+                <div class="promo-block-img-wrap">
+                    <img src="{{ perso.img }}" title="{{ perso.nom }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ perso.nom }}">
+                </div> -->
+
+
+            </div>
+        </div>
+        {% endfor %}
+        <!--// end row -->
+    </div>
+</div>
+<!-- Presentation  -->
+<div class="row col-md-12">
+  <h1 class="row col-md-12">Perso</h1>
+    <div class="col-md-12">
+       {% set i = 1 %}
+      {% for article in articles %}
+        {% if article.title == 'Presentation' %}
+        <article class="row col-md-12">
+            <h2><i class="fa fa-star" aria-hidden="true"></i> <a class="articleTitle" href="{{ path('article_single', { 'id': article.id }) }}">{{ article.title }}</a></h2>
+            <p>{{ article.content }}</p>
+        </article>
+        {% endif %}
+        {% set i = i + 1 %}
+      {% endfor %}
+    </div>
+  {% for perso in persos %}
+    <article class="row col-md-6 tuile text-center">
+        <h2><a class="articleTitle" href="{{ path('perso_single', { 'id': perso.id }) }}">{{ perso.nom }} {{ perso.prenom }}</a></h2>
+        <div class="col-md-12">
+          <img src="{{ perso.img }}" title="{{ perso.nom }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ perso.nom }}">
+        </div>
+        <p>{{ perso.adresse }}</p>
+        <p>{{ perso.tel }}</p>
+        <p>{{ perso.facebook }}</p>
+        <p>{{ perso.github }}</p>
+    </article>
+  {% endfor %}
+</div>
+
+<!-- Presentation -->
+
+<!-- Competences -->
+
+          <div class="col-md-3 col-sm-6 wow">
+						<div class="profile-widget">
+              <h3>Compétences</h3>
+              <div class="col-md-4">
+                <h4>Front</h4>
+                {% for competence in competences %}
+                  {% if competence.categorie == 'Front' %}
+                    <p>{{ competence.title }}</p>
+                    <div class="bob">
+                      <div class="skills" style="width:{{ competence.content }}%;"></div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div class="col-md-4">
+                <h4>Back</h4>
+                {% for competence in competences %}
+                  {% if competence.categorie == 'Back' %}
+                    <p>{{ competence.title }}</p>
+                    <div class="bob">
+                      <div class="skills" style="width:{{ competence.content }}%;"></div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div class="col-md-4">
+                <h4>Autre</h4>
+                {% for competence in competences %}
+                  {% if competence.categorie == 'Autre' %}
+                    <p>{{ competence.title }}</p>
+                    <div class="bob">
+                      <div class="skills" style="width:{{ competence.content }}%;"></div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+<!-- end test -->
+
+
+  <h1 class="row col-md-12">FORMATIONS / EXPÉRIENCES PROFESSIONNELLES</h1>
+  {% for experience in experiences %}
+    <article class="row col-md-6 tuile text-center">
+        <h2><a class="articleTitle" href="{{ path('experience_single', { 'id': experience.id }) }}">{{ experience.poste }}</a></h2>
+        <p><em>{{ experience.debut }}</em> / <em>{{ experience.fin }}</em></p>
+        <div class="col-md-12">
+          <img src="{{ experience.img }}" title="{{ experience.title }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ experience.title }}">
+        </div>
+        <h3>{{ experience.content }}</h3>
+    </article>
+  {% endfor %}
+  <!--  -->
+  <h1 class="row col-md-12">Loisirs</h1>
+  {% for loisir in loisirs %}
+    <article class="row col-md-6 tuile">
+        <h2><a class="articleTitle" href="{{ path('loisir_single', { 'id': loisir.id }) }}">{{ loisir.title }}</a></h2>
+
+    </article>
+  {% endfor %}
+  <!--  -->
+  <h1 class="row col-md-12">Portfolio</h1>
+  {% for portfolio in portfolios %}
+    <article class="row col-md-6 tuile text-center">
+        <h2><a class="articleTitle" href="{{ path('portfolio_single', { 'id': portfolio.id }) }}">{{ portfolio.name }}</a></h2>
+        <div class="col-md-12">
+          <p>{{ portfolio.descriptif }}</p>
+          <img src="{{ portfolio.img }}" title="{{ portfolio.name }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ portfolio.name }}">
+        </div>
+    </article>
+  {% endfor %}
+  <!--  -->
+  <h1 class="row col-md-12">Articles</h1>
+    {% for article in articles %}
+      <article class="row col-md-6 tuile text-center">
+          <h2><i class="fa fa-star" aria-hidden="true"></i> <a class="articleTitle" href="{{ path('article_single', { 'id': article.id }) }}">{{ article.title }}</a></h2>
+          <p>{{ article.content }}</p>
+      </article>
+    {% endfor %}
+{% endblock %}

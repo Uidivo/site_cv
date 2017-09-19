@@ -1,0 +1,18 @@
+{% extends "layout_front.html.twig" %}
+
+{% block title %}Informations personnel{% endblock %}
+
+{% block content %}
+  <h1>Perso</h1>
+  {% for perso in persos %}
+    <article class="row col-md-10">
+        <h2><a class="articleTitle" href="{{ path('perso', { 'id': perso.id }) }}">{{ perso.nom }} {{ perso.prenom }}</a></h2>
+        <div class="col-md-12">
+          <img src="{{ perso.img }}" title="{{ perso.nom }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ perso.nom }}">
+        </div>
+        <p>{{ perso.adresse }}</p>
+        <p>{{ perso.tel }}</p>
+    </article>
+  {% endfor %}
+
+{% endblock %}
