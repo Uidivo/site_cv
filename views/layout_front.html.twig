@@ -1,60 +1,102 @@
+
+<!--  -->
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+
+    <link href="{{ asset('/lib/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/microcms.css') }}" rel="stylesheet">
-    <title>Site CV - {% block title %}{% endblock %}</title>
+    <!-- <link href="{{ asset('/css/microcms.css') }}" rel="stylesheet"> -->
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('/lib/swiper/css/swiper.min.css') }}" rel="stylesheet" type="text/css"/>
+
+    <!-- THEME STYLES -->
+    <link href="{{ asset('/css/layout.min.css') }}" rel="stylesheet" type="text/css"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+
+    <title>Site CV Front - {% block title %}{% endblock %}</title>
 </head>
-<body>
-    <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <ul class="nav navbar-nav navbar-left">
-                        <a class="navbar-brand" href="{{ path('home') }}">Home</a>
-                    <a class="navbar-brand" href="{{ path('perso') }}">Info personnel</a>
-                    <a class="navbar-brand" href="{{ path('experience') }}">Experience</a>
-                    <a class="navbar-brand" href="{{ path('portfolio') }}">Portfolio</a>
-                    <a class="navbar-brand" href="{{ path('loisir') }}">Loisir</a>
-                    <a class="navbar-brand" href="{{ path('article') }}">Article</a>
-                    <a class="navbar-brand" href="{{ path('competence') }}">Competence</a>
-                    </ul>
+<!--  -->
+
+
+
+<!--  -->
+<body  id="body" data-spy="scroll" data-target=".header">
+  <!--  -->
+
+        <!--========== HEADER ==========-->
+        <header class="header navbar-fixed-top">
+            <!-- Navbar -->
+            <nav class="navbar" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="menu-container js_nav-item">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="toggle-icon"></span>
+                        </button>
+
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a class="logo-wrap" href="#body">
+                                <img class="logo-img" src="img/logoDOMcv.png" alt="DOM Logo">
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-collapse">
+                        <div class="menu-container">
+                            <ul class="nav navbar-nav navbar-nav-right">
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('home') }}">Home</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('perso') }}">Info personnel</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('experience') }}">Experience</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('portfolio') }}">Portfolio</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('loisir') }}">Loisir</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('article') }}">Article</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li class="{% if adminMenu is defined %}active{% endif %}"><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
+                                {% endif %}
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{ path('logout') }}">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{ path('login') }}">Log in</a></li>
+                                        </ul>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Navbar Collapse -->
                 </div>
-                <div class="collapse navbar-collapse" id="navbar-collapse-target">
-                    <ul class="nav navbar-nav navbar-right">
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <li class="{% if adminMenu is defined %}active{% endif %}"><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
-                        {% endif %}
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('logout') }}">Log out</a></li>
-                                </ul>
-                            </li>
-                        {% else %}
-                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('login') }}">Log in</a></li>
-                                </ul>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div><!-- /.container -->
-        </nav>
+            </nav>
+            <!-- Navbar -->
+        </header>
+        <!--========== END HEADER ==========-->
+
         <div id="content">{% block content %}{% endblock %}</div>
         <footer class="footer col-md-12">
             <a href="https://github.com/bpesquet/OC-MicroCMS">MicroCMS</a> is a minimalistic CMS built as a showcase for modern PHP development.
@@ -63,6 +105,14 @@
 
     <!-- jQuery -->
     <script src="{{ asset('/lib/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/lib/jquery/jquery-migrate.min.js') }}"></script>
+    <script src="{{ asset('/lib/jquery/jquery.back-to-top.js') }}"></script>
+    <script src="{{ asset('/lib/jquery/jquery.easing.js') }}"></script>
+    <script src="{{ asset('/lib/jquery/jquery.parallax.min.js') }}"></script>
+    <script src="{{ asset('/lib/jquery/jquery.smooth-scroll.js') }}"></script>
+    <script src="{{ asset('/lib/jquery/jquery.wow.min.js') }}"></script>
+    <script src="{{ asset('/lib/swiper/js/swiper.jquery.min.js') }}"></script>
+    <script src="{{ asset('/lib/swiper/js/swiper.min.js') }}"></script>
     <!-- JavaScript Boostrap plugin -->
     <script src="{{ asset('/lib/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
