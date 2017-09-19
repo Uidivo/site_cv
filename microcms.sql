@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 19 Septembre 2017 à 14:16
--- Version du serveur :  10.1.13-MariaDB
--- Version de PHP :  5.6.23
+-- Généré le :  Lun 14 Août 2017 à 12:11
+-- Version du serveur :  10.1.16-MariaDB
+-- Version de PHP :  7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -40,8 +40,7 @@ INSERT INTO `t_article` (`art_id`, `art_title`, `art_content`) VALUES
 (1, 'First article', 'Hi there! This is the very first article.'),
 (2, 'Lorem ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit mauris ac porttitor accumsan. Nunc vitae pulvinar odio, auctor interdum dolor. Aenean sodales dui quis metus iaculis, hendrerit vulputate lorem vestibulum. Suspendisse pulvinar, purus at euismod semper, nulla orci pulvinar massa, ac placerat nisi urna eu tellus. Fusce dapibus rutrum diam et dictum. Sed tellus ipsum, ullamcorper at consectetur vitae, gravida vel sem. Vestibulum pellentesque tortor et elit posuere vulputate. Sed et volutpat nunc. Praesent nec accumsan nisi, in hendrerit nibh. In ipsum mi, fermentum et eleifend eget, eleifend vitae libero. Phasellus in magna tempor diam consequat posuere eu eget urna. Fusce varius nulla dolor, vel semper dui accumsan vitae. Sed eget risus neque.'),
 (3, 'Lorem ipsum in french', 'J’en dis autant de ceux qui, par mollesse d’esprit, c’est-à-dire par la crainte de la peine et de la douleur, manquent aux devoirs de la vie. Et il est très facile de rendre raison de ce que j’avance. Car, lorsque nous sommes tout à fait libres, et que rien ne nous empêche de faire ce qui peut nous donner le plus de plaisir, nous pouvons nous livrer entièrement à la volupté et chasser toute sorte de douleur ; mais, dans les temps destinés aux devoirs de la société ou à la nécessité des affaires, souvent il faut faire divorce avec la volupté, et ne se point refuser à la peine. La règle que suit en cela un homme sage, c’est de renoncer à de légères voluptés pour en avoir de plus grandes, et de savoir supporter des douleurs légères pour en éviter de plus fâcheuses.'),
-(4, 'je suis un article', 'zgefoapfanfkjabidhab ljaendkjabkjab aldnakjek aodnkj'),
-(5, 'Presentation', 'Bonjour je suis Ovidiu, et je suis un developpeur integrateur web debutant.\r\n\r\nActuellement je suis à la recherche d''un stage de 2 mois du 20 octobre au 20 décembre pour finaliser mes diplômes de développeur intégrateur web.');
+(4, 'je suis un article', 'zgefoapfanfkjabidhab ljaendkjabkjab aldnakjek aodnkj');
 
 -- --------------------------------------------------------
 
@@ -66,27 +65,6 @@ INSERT INTO `t_comment` (`com_id`, `com_content`, `art_id`, `usr_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `t_competence`
---
-
-CREATE TABLE `t_competence` (
-  `competence_id` int(11) NOT NULL,
-  `competence_nom` varchar(255) NOT NULL,
-  `competence_descriptif` varchar(11) NOT NULL,
-  `competence_categorie` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `t_competence`
---
-
-INSERT INTO `t_competence` (`competence_id`, `competence_nom`, `competence_descriptif`, `competence_categorie`) VALUES
-(2, 'HTML', '90', 'Back'),
-(3, 'CSS3', '90%', 'Front');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `t_experience`
 --
 
@@ -105,13 +83,11 @@ CREATE TABLE `t_experience` (
 --
 
 INSERT INTO `t_experience` (`xp_id`, `xp_contrat`, `xp_debut`, `xp_fin`, `xp_descriptif`, `xp_poste`, `xp_img`) VALUES
-(1, 'CDI', '2017-02-20', '2017-12-20', 'Chantier d''insertion numérique,Ma6TvaCoder\r\nApprentissage : langages web / avec WebForce3\r\nCréation de site internet', 'Développeur intégrateur web', 'http://lepoles.org/wp-content/uploads/2015/09/logo-6tPrezi.png'),
-(2, 'Contrat', '2014-01-01', '2016-12-26', 'Technicien Réparation Téléphonie et Maintenance Software\r\nPC,Tablette,Téléphonie-Wexim, Paris\r\nTechnicien Maintenance des Postes Informatique-MSS, Noisy le Grand\r\nInstallation et maintenance (matériel et logiciels)', 'Plusieurs stages technicien maintenance et réparation informatique', 'http://i85.servimg.com/u/f85/14/45/36/75/fetch_13.jpg'),
-(9, 'Contrat', '2017-02-20', '2017-12-20', 'Le PoleS / WebForce3 Pantin\r\nChantier d''insertion numérique,Ma6TvaCoder\r\nApprentissage : langages web / avec WebForce3\r\nCréation de site internet', 'Formation Devellopeur Integrateur Web', 'http://lepoles.org/wp-content/uploads/2015/09/logo-6tPrezi.png'),
-(10, 'CDI', '2016-04-10', '2016-08-29', 'Organismes: APPR Bondy et EFOR\r\nla Courneuve', 'Formation L''emploi c''est permis', 'http://appr-autoecole.fr/wp-content/uploads/2016/07/logo-dark-1.png'),
-(11, 'CDI', '2013-09-03', '2014-08-29', 'TSRIT\r\nCentre de formation CEFIAC Sarcelles\r\nTechnicien supérieur en réseaux informatiques et télécommunications(1/3)', 'Technicien supérieur en réseaux informatiques et télécommunications', 'https://image.jimcdn.com/app/cms/image/transf/dimension=250x10000:format=png/path/sb7abbe876d54100b/image/if4ce8298ee62d412/version/1491829055/image.png'),
-(13, 'CDI', '2009-09-07', '2010-07-20', 'Lycée Jules Richard Paris 19', 'Terminale BAC S.T.I.', 'http://www.lyceejulesrichard.fr/images/marianne.jpg'),
-(14, 'CDI', '2005-09-05', '2007-06-20', 'Lycée Louis Girard Malakoff \r\n\r\nMétiers des Produits Mécaniques Industriels', 'BEP M.P.M.I.', 'https://www.archi-guide.com/PH/FRA/IDF/MalakLyLGirardCa.jpg');
+(1, 'CDI', '2015-12-05', '2058-12-12', 'reggrgqr  rqf', 'marchand de sable', 'https://i.skyrock.net/7744/78437744/pics/3128557686_1_2_a8PPmyge.jpg'),
+(2, 'CDI', '2012-05-14', '2013-11-05', 'En charge de la flote', 'Armateur dans la Marine Royale', 'https://troisponts.files.wordpress.com/2011/10/quibcardinaux2.jpg'),
+(3, 'CDI', '0000-00-00', '2015-08-05', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum pretium sodales. Nunc faucibus rhoncus sollicitudin. Curabitur vel dui ac felis egestas scelerisque ac sed sem. Mauris erat urna, consectetur ut lobortis vitae, feugiat a purus.', 'neo', 'http://wallpapercave.com/wp/70zTJIp.jpg'),
+(4, 'CDI', '2012-05-14', '2013-11-05', 'avec mon chien Moumoute', 'Punk à chien', 'https://lappartementcollectif.files.wordpress.com/2011/12/punkachiens.jpg'),
+(5, 'CDI', '2015-12-05', '2058-12-12', 'En charge des produits manufacturé', 'President d''une PME', 'https://www.challenges.fr/assets/img/2013/08/06/cover-r4x3w1000-579689287e549-canettes-de-coca-cola.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,9 +106,7 @@ CREATE TABLE `t_loisirs` (
 --
 
 INSERT INTO `t_loisirs` (`loisir_id`, `loisir_nom`, `loisir_descriptif`) VALUES
-(1, 'luge', 'j''aime faire de la luge dans les descentes !!'),
-(2, 'Vélo', 'Une fois tous les mois j''aime aller à la découverte des régions à vélo.'),
-(3, 'Voyages', 'Roumanie, Bulgarie,Ukraine,\r\nAllemagne, Suisse, Corse,\r\nFrance, Belgique, Espagne,\r\nItalie');
+(1, 'luge', 'j''aime faire de la luge dans les descentes !!');
 
 -- --------------------------------------------------------
 
@@ -158,7 +132,7 @@ CREATE TABLE `t_perso` (
 --
 
 INSERT INTO `t_perso` (`perso_id`, `perso_nom`, `perso_prenom`, `perso_poste`, `perso_img`, `perso_facebook`, `perso_github`, `perso_codepen`, `perso_tel`, `perso_adresse`) VALUES
-(1, 'Dobrigeanu', 'Ovidiu Marin', 'Devellopeur Integrateur Web', 'https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg', 'https://www.facebook.com/profile.php?id=100015451357062', 'https://github.com/Uidivo', 'none', '06 52 27 92 00', 'ovidiu.dobrigeanu@lepoles.com');
+(1, 'Bawaka', 'Shawn', 'Developpeur web', 'http://digitalspyuk.cdnds.net/12/44/768x993/gallery_movies_star_wars_bts_pics_13.jpg', 'https://www.facebook.com/profile.php?id=100008801719489', 'https://github.com/adricen', 'https://codepen.io/Adricen/', '05 16 48 16', '45 Rue du foutoire 45023 Creuzie');
 
 -- --------------------------------------------------------
 
@@ -180,8 +154,7 @@ CREATE TABLE `t_portfolio` (
 --
 
 INSERT INTO `t_portfolio` (`port_id`, `port_name`, `port_lieu`, `port_descriptif`, `port_date`, `port_img`) VALUES
-(1, 'Site de la prefecture', 'Paris', 'J''ai fait le sit de la prefecture', '2017-08-09', 'https://cms-assets.tutsplus.com/uploads/users/30/posts/27134/image/elelemnents.jpg'),
-(2, 'Les Simpsons', 'Pantin', 'Un site responsive sur les Simpsons', '2017-04-02', 'http://www.geeksandcom.com/wp-content/uploads/2016/09/Simpsons-television-1000x667.jpeg');
+(1, 'Site de la prefecture', 'Paris', 'J''ai fait le sit de la prefecture', '2017-08-09', 'https://cms-assets.tutsplus.com/uploads/users/30/posts/27134/image/elelemnents.jpg');
 
 -- --------------------------------------------------------
 
@@ -224,12 +197,6 @@ ALTER TABLE `t_comment`
   ADD KEY `fk_com_usr` (`usr_id`);
 
 --
--- Index pour la table `t_competence`
---
-ALTER TABLE `t_competence`
-  ADD PRIMARY KEY (`competence_id`);
-
---
 -- Index pour la table `t_experience`
 --
 ALTER TABLE `t_experience`
@@ -267,27 +234,22 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT pour la table `t_article`
 --
 ALTER TABLE `t_article`
-  MODIFY `art_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `art_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `t_comment`
 --
 ALTER TABLE `t_comment`
   MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT pour la table `t_competence`
---
-ALTER TABLE `t_competence`
-  MODIFY `competence_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
 -- AUTO_INCREMENT pour la table `t_experience`
 --
 ALTER TABLE `t_experience`
-  MODIFY `xp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `xp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `t_loisirs`
 --
 ALTER TABLE `t_loisirs`
-  MODIFY `loisir_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `loisir_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_perso`
 --
@@ -297,7 +259,7 @@ ALTER TABLE `t_perso`
 -- AUTO_INCREMENT pour la table `t_portfolio`
 --
 ALTER TABLE `t_portfolio`
-  MODIFY `port_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `port_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `t_user`
 --
