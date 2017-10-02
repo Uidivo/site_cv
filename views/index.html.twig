@@ -17,6 +17,10 @@
                         <li><a href="{{ perso.facebook }}" class="social-icons"><i class="icon-social-facebook"></i></a></li>
                         <li><a href="{{ path('perso_single', { 'id': perso.id }) }}" class="social-icons"><i class="icon-social-linkedin"></i></a></li>
                         <li><a href="{{ perso.github }}" class="social-icons"><i class="icon-social-github"></i></a></li>
+<<<<<<< HEAD
+=======
+                        <li><a href="#" class="social-icons"><i class="icon-social-file"></i></a></li>
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
                     </ul>
                 </div>
 
@@ -44,6 +48,7 @@
   <div class="promo-block">
       <div class="container">
           <div class="row">
+<<<<<<< HEAD
               <div class="col-sm-6 sm-margin-b-60">
                   <div class="margin-b-30">
                       <h2 class="promo-block-title"><a class="articleTitle" href="{{ path('perso_single', { 'id': perso.id }) }}">{{ perso.nom }} {{ perso.prenom }}</a></h2>
@@ -58,6 +63,10 @@
                       <p>{{ perso.facebook }}</p>
                       <p>{{ perso.github }}</p>
                   </ul>
+=======
+              <div class="col-sm-6">
+                  <p>{{ perso.codepen }}</p>
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
               </div>
               <div class="col-sm-6">
                   <div class="promo-block-img-wrap">
@@ -71,16 +80,24 @@
   <!--========== SLIDER ==========-->
   <!--  -->
 {% endfor %}
+<<<<<<< HEAD
 <div class="promo-block">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6 wow">
+=======
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 wow">
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
           <div class="progress-box">
               <h5>HTML <span class="color-heading pull-right">90%</span></h5>
               <div class="progress">
                   <div class="progress-bar bg-color-base" role="progressbar" data-width="90"></div>
               </div>
           </div>
+<<<<<<< HEAD
       </div>
 
                   <div class="profile-widget">
@@ -253,21 +270,92 @@
   {% for loisir in loisirs %}
     <article class="row col-md-6 tuile">
         <h2><a class="articleTitle" href="{{ path('loisir_single', { 'id': loisir.id }) }}">{{ loisir.title }}</a></h2>
-
-    </article>
-  {% endfor %}
-  <!--  -->
-  <h1 class="row col-md-12">Portfolio</h1>
-  {% for portfolio in portfolios %}
-    <article class="row col-md-6 tuile text-center">
-        <h2><a class="articleTitle" href="{{ path('portfolio_single', { 'id': portfolio.id }) }}">{{ portfolio.name }}</a></h2>
-        <div class="col-md-12">
-          <p>{{ portfolio.descriptif }}</p>
-          <img src="{{ portfolio.img }}" title="{{ portfolio.name }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ portfolio.name }}">
+=======
+          <div class="progress-box">
+              <h5>CSS <span class="color-heading pull-right">90%</span></h5>
+              <div class="progress">
+                  <div class="progress-bar bg-color-base" role="progressbar" data-width="90"></div>
+              </div>
+          </div>
+          <div class="progress-box">
+              <h5>PHP <span class="color-heading pull-right">60%</span></h5>
+              <div class="progress">
+                  <div class="progress-bar bg-color-base" role="progressbar" data-width="60"></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6 col-sm-6 wow">
+        <div class="progress-box">
+            <h5>HTML <span class="color-heading pull-right">90%</span></h5>
+            <div class="progress">
+                <div class="progress-bar bg-color-base" role="progressbar" data-width="90"></div>
+            </div>
         </div>
-    </article>
-  {% endfor %}
+        <div class="progress-box">
+            <h5>CSS <span class="color-heading pull-right">90%</span></h5>
+            <div class="progress">
+                <div class="progress-bar bg-color-base" role="progressbar" data-width="90"></div>
+            </div>
+        </div>
+        <div class="progress-box">
+            <h5>PHP <span class="color-heading pull-right">60%</span></h5>
+            <div class="progress">
+                <div class="progress-bar bg-color-base" role="progressbar" data-width="60"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  <div class="container" id="experiance">
+    <h1>PARCOURS ET EXPÉRIENCES</h1>
+    <div class="row">
+      <hr>
+      {% for experience in experiences %}
+
+      <article class="col-md-5 col-md-offset-1 text-center mate">
+          <h2><a class="articleTitle" href="{{ path('experience_single', { 'id': experience.id }) }}">{{ experience.poste }}</a></h2>
+          <p><em>{{ experience.debut }}</em> / <em>{{ experience.fin }}</em></p>
+          <div class="col-md-12">
+            <img src="{{ experience.img }}" title="{{ experience.title }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ experience.title }}">
+          </div>
+          <h3>{{ experience.content }}</h3>
+      </article>
+
+      {% endfor %}
+    </div>
+  </div>
+
+
+<!--  -->
+<div class="container" id="portfolio">
+<h1 class="text-center">Portfolio</h1>
+{% for portfolio in portfolios %}
+  <article class="row col-md-6 tuile text-center">
+      <h2><a class="articleTitle" href="{{ path('portfolio_single', { 'id': portfolio.id }) }}">{{ portfolio.name }}</a></h2>
+      <div class="col-md-12">
+        <p>{{ portfolio.descriptif }}</p>
+        <img src="{{ portfolio.img }}" title="{{ portfolio.name }}" class="col-md-8 col-md-offset-2 img-thumbnail" alt="{{ portfolio.name }}">
+      </div>
+  </article>
+{% endfor %}
+</div>
   <!--  -->
+  <div class="container" id="loisir">
+    <h1 class="text-center">Loisirs</h1>
+    {% for loisir in loisirs %}
+      <article class="row col-md-4">
+          <h2><a class="articleTitle" href="{{ path('loisir_single', { 'id': loisir.id }) }}">{{ loisir.title }}</a></h2>
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
+
+      </article>
+  {% endfor %}
+  </div>
+  <!--  -->
+
+  <!--  -->
+<<<<<<< HEAD
   <h1 class="row col-md-12">Articles</h1>
     {% for article in articles %}
       <article class="row col-md-6 tuile text-center">
@@ -275,6 +363,9 @@
           <p>{{ article.content }}</p>
       </article>
     {% endfor %}
+=======
+
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
 
     <!-- Contact -->
     {% for perso in persos %}
@@ -283,8 +374,33 @@
               <div class="container content-lg">
                   <div class="row margin-b-40">
                       <div class="col-sm-12 text-center">
+<<<<<<< HEAD
                          <h2>Contact Me</h2>
                           <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed tempor incididunt ut laboret dolore magna aliqua enim minim veniam exercitation</p>
+=======
+                         <h2>Contact</h2>
+                         <div class="col-md-6 col-md-offset-3">
+                           <div class="form-area">
+                          <form role="form" action="contact.php" method="post">
+                          <br style="clear:both">
+                            <h3 style="margin-bottom: 25px; text-align: center;">Formulaire de contact</h3>
+                      			<div class="form-group">
+                  						  <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                  					 </div>
+                  					<div class="form-group">
+                  						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                  					</div>
+                  					<div class="form-group">
+                  						<input type="text" class="form-control" id="phone" name="phone" placeholder="Mobile Number" required>
+                  					</div>
+                            <div class="form-group">
+                              <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                            </div>
+                              <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Envoyer le message</button>
+                          </form>
+                         </div>
+
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
                       </div>
                   </div>
                   <!--// end row -->

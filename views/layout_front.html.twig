@@ -60,6 +60,7 @@
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('home') }}">Home</a></li>
+<<<<<<< HEAD
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('perso') }}">Info personnel</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('experience') }}">Experience</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ path('portfolio') }}">Portfolio</a></li>
@@ -88,6 +89,15 @@
                                     </li>
                                 {% endif %}
                             </ul>
+=======
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#personnel">Info personnel</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#experiance">Experience</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#portfolio">Portfolio</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#loisir">Loisir</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contact</a></li>
+                            </ul>
+
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
                         </div>
                     </div>
                     <!-- End Navbar Collapse -->
@@ -100,6 +110,28 @@
         <div id="content">{% block content %}{% endblock %}</div>
         <footer class="footer col-md-12">
             <a href="https://github.com/bpesquet/OC-MicroCMS">MicroCMS</a> is a minimalistic CMS built as a showcase for modern PHP development.
+            <ul class="nav navbar-nav navbar-right">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="{% if adminMenu is defined %}active{% endif %}"><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
+                {% endif %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('logout') }}">Log out</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('login') }}">Log in</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
         </footer>
     </div>
 
@@ -111,8 +143,12 @@
     <script src="{{ asset('/lib/jquery/jquery.parallax.min.js') }}"></script>
     <script src="{{ asset('/lib/jquery/jquery.smooth-scroll.js') }}"></script>
     <script src="{{ asset('/lib/jquery/jquery.wow.min.js') }}"></script>
+<<<<<<< HEAD
     <script src="{{ asset('/lib/jquery/jquery.appear.js') }}"></script>
     <script src="{{ asset('/lib/swiper/js/swiper.jquery.min.js') }}">></script>
+=======
+    <script src="{{ asset('/lib/swiper/js/swiper.jquery.min.js') }}"></script>
+>>>>>>> 71b5e7e51b54c8e38fb0171549c552adfa3d2b46
     <script src="{{ asset('/lib/swiper/js/swiper.min.js') }}"></script>
     <!-- JavaScript Boostrap plugin -->
     <script src="{{ asset('/lib/bootstrap/js/bootstrap.min.js') }}"></script>
